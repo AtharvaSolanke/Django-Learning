@@ -1,0 +1,65 @@
+to run project : python manage.py runserver
+
+CRUD - create, read, update, delete
+
+static - files are visible to public.
+
+in Dir you can access html or css templates
+
+steps:
+1. urls.py first - path('', include('home.urls'))
+2. urls.py home - path("", views.index, name="home"),
+3. views.py - def index(request):
+    #return HttpResponse("This is Home page")
+    return render(request, 'index.html')
+
+context is a set of variables and dictionary
+
+superuser has all access
+
+template inheretence : ex nave bar should be in every pages
+
+model : defines a database
+
+1. first create class in model
+2. register model in admin
+admin.site.register(Contact)
+3. register app in settings installed apps
+
+makemigrations = generate file which stores the changes
+migrate = apply the pending changes created by makemigrations
+
+make table = python manage.py migrate
+
+add info in table:
+
+1. in views.py if request.method == "POST":
+2. add name = request.POST.get('name')
+same for others
+3. from datetime import datetime
+4. from home.model import contact
+5.in if:
+contact = contact(name = 'name', number = 'number', date = datetime.today())
+contact.save()
+* this will get info from form and save to database
+
+if insted of contact object(1) you want name:
+	def __str__(self):
+        return self.name
+
+to display message after sent:
+1. in views.py after contact.save() messages.success(request, "Your message has been sent!")
+2. in views.py from django.contrib import messages
+3. in settings.py from django.contrib.messages import constants as messages
+4. in base.html
+	{% if messages %}
+      {% for message in messages %}
+      <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+        {{ message }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+       {% endfor %}
+      {% endif %}
+
+
+	
