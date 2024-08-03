@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block title %}
+about
+{% endblock title %}
+{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>about</title>
+    <style>
+        .texta{
+            text-align: center;
+        }
+        #heade{
+            font-size: 25px;
+        }
+        #topic{
+            font-size: 35px;
+        }
+        .info{
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body style="background-color: rgb(60, 220, 248);">
+    <h2 id="topic" class="texta">This is About Page</h2>
+    <p id="heade" class="texta">
+        I am a Student
+    </p>
+    <p class="texta info">
+        Computer Engineering
+    </p>
+</body>
+</html>
+{% endblock body %}
